@@ -3,6 +3,17 @@
   padding-top: 56.25%
 }
 
+.image{
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+}
+
+.image-wrapper {
+  position: relative;
+  padding-top: 56.25%
+}
+
 .react-player {
   position: absolute;
   top: 0;

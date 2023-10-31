@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import VideoPlayer from './VideoPlayer';
-import VideoDetails from './VideoDetails';
+import VideoTitle from './VideoTitle';
 import VideoList from './VideoList';
 import VideoCount from './VideoCount';
 import SearchButton from './SearchButton';
@@ -17,7 +17,7 @@ function MainScreen() {
                     </div>
                     <VideoPlayer />
                     <div className="d-flex justify-content-between align-items-center mt-3">
-                        <VideoDetails />
+                        <VideoTitle />
                         <DetailsButton />
                     </div>
                 </div>

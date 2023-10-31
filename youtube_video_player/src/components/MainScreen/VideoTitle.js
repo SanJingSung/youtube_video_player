@@ -1,9 +1,9 @@
 import React from 'react';
 
-function VideoDetails({ title }) {
+function VideoTitle({ title }) {
   return (
     <h1>Video title</h1>
   );
 }
 
-export default VideoDetails;
+export default VideoTitle;
