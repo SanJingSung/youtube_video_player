@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search } from 'react-bootstrap-icons';
 
-const SearchBar = ({ onChange, value }) => {
+const SearchBar = ({ onSearchSubmit, setSearchTerm }) => {
+    const [term, setTerm] = useState('');
+
+    const handleInputChange = (event) => {
+        setTerm(event.target.value);
+        setSearchTerm(event.target.value);
+    };
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        onSearchSubmit(term);
+    };
+
     return (
-        <div className="input-group">
+        <form onSubmit={handleFormSubmit} className="input-group">
             <div className="input-group-prepend">
                 <span className="input-group-text">
                     <Search className="fs-4" id="search-icon" />
@@ -13,14 +25,15 @@ const SearchBar = ({ onChange, value }) => {
                 type="text"
                 className="form-control rounded"
                 placeholder={"Search..."}
-                value={value}
-                onChange={onChange}
+                value={term}
+                onChange={handleInputChange}
             />
-        </div>
+        </form>
     );
 }
 
 export default SearchBar;
+
 
 
 

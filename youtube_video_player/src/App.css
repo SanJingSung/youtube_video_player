@@ -1,17 +1,19 @@
-.player-wrapper {
-  position: relative;
-  padding-top: 56.25%
-}
-
 .image{
   width: 100%;
   height: 100%;
   background-color: grey;
 }
 
-.image-wrapper {
+.image-placeholder {
   position: relative;
   padding-top: 56.25%
+}
+
+.player-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
 }
 
 .react-player {
@@ -19,6 +21,8 @@
   top: 0;
   left: 0;
 }
+
+
 
 
 

@@ -4,11 +4,11 @@ function VideoList({ videos }) {
     return (
         <div className="d-flex flex-column h-100">
             {(videos && videos.length) ? (
-                videos.slice(0, 3).map(video => (
-                    <div key={video.id} className="mb-2 flex-grow-1">
+                videos.slice(1, 4).map((video, index) => (
+                    <div key={index} className="mb-2 flex-grow-1">
                         <img
-                            src={video.thumbnailURL}
-                            alt={video.title}
+                            src={video.snippet.thumbnails.default.url}
+                            alt={video.snippet.title}
                             className="img-fluid h-100"
                         />
                     </div>
