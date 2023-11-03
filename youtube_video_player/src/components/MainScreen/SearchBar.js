@@ -12,6 +12,7 @@ const SearchBar = ({ onSearchSubmit, setSearchTerm }) => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         onSearchSubmit(term);
+        setTerm('');
     };
 
     return (
@@ -33,7 +34,6 @@ const SearchBar = ({ onSearchSubmit, setSearchTerm }) => {
 }
 
 export default SearchBar;
-
 
 
 

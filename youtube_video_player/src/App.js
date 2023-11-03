@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainScreen />} />
+        <Route path="/" element={<MainScreen/>} />
         <Route path="/video" element={<DetailScreen />} />
       </Routes>
     </Router>
