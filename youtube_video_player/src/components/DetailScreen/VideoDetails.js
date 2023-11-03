@@ -1,9 +1,9 @@
 import React from 'react';
 
-function VideoDetails() {
+function VideoDetails({ details }) {
     return (
         <div className="mb-4">
-            <p>Texto random</p>
+            <p>{details}</p>
         </div>
     );
 }

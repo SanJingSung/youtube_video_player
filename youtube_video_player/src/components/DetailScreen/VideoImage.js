@@ -1,9 +1,9 @@
 import React from 'react';
 
-function VideoImage() {
+function VideoImage({ imageUrl }) {
     return (
         <div className="image-wrapper position-relative mb-2">
-            <div className="img-placeholder bg-light w-100" style={{ paddingTop: '56.25%' }}></div>
+            <img src={imageUrl} className="img-fluid" alt="Video Thumbnail" />
         </div>
     );
 }

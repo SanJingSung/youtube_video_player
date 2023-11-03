@@ -7,7 +7,7 @@ function VideoList({ videos, onVideoSelect }) {
             {(videos && videos.length) ? (
                 videos.slice(1, 4).map((video, index) => (
                     <div key={index} className="video-container mb-2 flex-grow-1 d-flex justify-content-center position-relative">
-                        <a href="#" className="overlay text-light d-flex justify-content-center align-items-center w-100 h-100 position-absolute top-0 left-0"
+                        <a href={video.snippet.title} className="overlay text-light d-flex justify-content-center align-items-center w-100 h-100 position-absolute top-0 left-0"
                             onClick={() => onVideoSelect(video)}
                         >
                             <h4><i className="fas fa-search-plus"></i></h4>
