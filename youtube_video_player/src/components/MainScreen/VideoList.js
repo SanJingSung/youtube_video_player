@@ -1,5 +1,6 @@
 import React from 'react';
 import DefaultThumbnail from '../../img/default-thumbnail.png';
+import { Button } from 'react-bootstrap';
 
 function VideoList({ videos, onVideoSelect }) {
     return (
@@ -7,12 +8,12 @@ function VideoList({ videos, onVideoSelect }) {
             {(videos && videos.length) ? (
                 videos.slice(1, 4).map((video, index) => (
                     <div key={index} className="video-container mb-2 flex-grow-1 d-flex justify-content-center position-relative">
-                        <a href={video.snippet.title} className="overlay text-light d-flex justify-content-center align-items-center w-100 h-100 position-absolute top-0 left-0"
+                        <Button className="overlay text-light d-flex justify-content-center align-items-center w-100 h-100 position-absolute top-0 left-0 bg-secondary bg-opacity-50 border-0"
                             onClick={() => onVideoSelect(video)}
                         >
                             <h4><i className="fas fa-search-plus"></i></h4>
                             <p>{video.snippet.title}</p>
-                        </a>
+                        </Button>
                         <img
                             src={video.snippet.thumbnails.default.url}
                             alt={video.snippet.title}

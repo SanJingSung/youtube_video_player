@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+const YOUTUBE_API_KEY = "AIzaSyD6elR6uz7DaN0F0GKdn4UIv-x_ibicOtA";
 
 const youtube = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
@@ -10,5 +10,15 @@ const youtube = axios.create({
         key: YOUTUBE_API_KEY
     }
 });
+
+export async function getVideoDetails(videoId) {
+    const response = await youtube.get('/videos', {
+        params: {
+            id: videoId,
+            part: 'snippet,statistics,contentDetails',
+        },
+    });
+    return response.data.items[0];
+}
 
 export default youtube;

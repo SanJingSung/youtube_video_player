@@ -33,8 +33,7 @@ function MainScreen() {
     const onSearchSubmit = async term => {
         const response = await youtube.get('/search', {
             params: {
-                q: term,
-                type: 'video',
+                q: term
             }
         });
         setVideos(response.data.items);
@@ -49,27 +48,27 @@ function MainScreen() {
     };
 
     return (
-
-        <div className="row h-100">
-            <div className="col-md-7 d-flex flex-column h-100">
-                <div className="d-flex mb-3">
-                    <SearchBar onSearchSubmit={onSearchSubmit} setSearchTerm={setSearchTerm} />
+        <div className="container-fluid mt-2">
+            <div className="row h-100">
+                <div className="col-md-7 d-flex flex-column h-100">
+                    <div className="d-flex mb-3">
+                        <SearchBar onSearchSubmit={onSearchSubmit} setSearchTerm={setSearchTerm} />
+                    </div>
+                    <VideoPlayer video={selectedVideo} />
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                        <VideoTitle video={videos[0]} />
+                        <DetailsButton video={selectedVideo} isVideoSelected={selectedVideo} videoCount={videoCount} videos={videos} />
+                    </div>
                 </div>
-                <VideoPlayer video={selectedVideo} />
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                    <VideoTitle video={videos[0]} />
-                    <DetailsButton video={selectedVideo} isVideoSelected={selectedVideo} videoCount = {videoCount} videos={videos} />
+                <div className="col d-flex flex-column justify-content-between">
+                    <SearchButton onSearchClick={() => onSearchSubmit(searchTerm)} />
+                    <div className='d-flex flex-column h-100'>
+                        <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+                    </div>
+                    <VideoCount className="" count={videoCount} />
                 </div>
-            </div>
-            <div className="col d-flex flex-column justify-content-between">
-                <SearchButton onSearchClick={() => onSearchSubmit(searchTerm)} />
-                <div className='d-flex flex-column h-100'>
-                    <VideoList videos={videos} onVideoSelect={onVideoSelect} />
-                </div>
-                <VideoCount className="" count={videoCount} />
             </div>
         </div>
-
     );
 }
 

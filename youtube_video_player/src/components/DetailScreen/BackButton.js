@@ -11,7 +11,7 @@ function BackButton() {
     }
 
     return (
-        <Button onClick={navigateToDetail}>
+        <Button className="mt-1 px-5" onClick={navigateToDetail}>
             ← Back
         </Button>
     );
