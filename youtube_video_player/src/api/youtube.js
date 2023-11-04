@@ -11,14 +11,4 @@ const youtube = axios.create({
     }
 });
 
-export async function getVideoDetails(videoId) {
-    const response = await youtube.get('/videos', {
-        params: {
-            id: videoId,
-            part: 'snippet,statistics,contentDetails',
-        },
-    });
-    return response.data.items[0];
-}
-
 export default youtube;

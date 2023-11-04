@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { getVideoDetails } from '../../api/youtube';
+import youtube from '../../api/youtube';
 
 function VideoDetails({ video }) {
     const [videoDetails, setVideoDetails] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function obtainVideoData(videoId) {
-            const videoData = await getVideoDetails(videoId);
-            setVideoDetails(videoData);
+        async function getVideoDetails(videoId) {
+            const videoData = await youtube.get('/videos', {
+                params: {
+                    id: videoId,
+                    part: 'snippet,statistics',
+                },
+            });
+            setVideoDetails(videoData.data.items[0]);
             setLoading(false);
         }
-        obtainVideoData(video.id.videoId);
+        getVideoDetails(video.id.videoId);
     }, [video]);
 
     if (loading) {
@@ -31,5 +36,6 @@ function VideoDetails({ video }) {
 }
 
 export default VideoDetails;
+
 
 
