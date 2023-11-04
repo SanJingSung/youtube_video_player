@@ -25,12 +25,18 @@ function VideoDetails({ video }) {
 
     return (
         <div>
-            <p><strong>Description:</strong> {video.snippet.description}</p>
-            <p><strong>Published at:</strong> {video.snippet.publishedAt}</p>
-            <p><strong>Channel:</strong> {video.snippet.channelTitle}</p>
-            <p><strong>Views:</strong> {videoDetails.statistics.viewCount}</p>
-            <p><strong>Likes:</strong> {videoDetails.statistics.likeCount}</p>
-            <p><strong>Comments:</strong> {videoDetails.statistics.commentCount}</p>
+            <p className="fw-bold">Description:</p>
+            <p>{video.snippet.description}</p>
+            <p className="fw-bold">Published at:</p>
+            <p>{video.snippet.publishedAt}</p>
+            <p className="fw-bold">Channel:</p>
+            <p>{video.snippet.channelTitle}</p>
+            <p className="fw-bold">Views:</p>
+            <p>{videoDetails.statistics.viewCount}</p>
+            <p className="fw-bold">Likes:</p>
+            <p>{videoDetails.statistics.likeCount}</p>
+            <p className="fw-bold">Comments:</p>
+            <p>{videoDetails.statistics.commentCount}</p>
         </div>
     );
 }
