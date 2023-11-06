@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { VideoContext } from '../../contexts/VideoContext';
 
-function DetailsButton({ video, isVideoSelected, videos, videoCount }) {
+function DetailsButton() {
+    const { selectedVideo } = useContext(VideoContext);
     const navigate = useNavigate();
 
     const navigateToDetail = () => {
-        sessionStorage.setItem('selectedVideo', JSON.stringify(video));
-        sessionStorage.setItem('videoCount', JSON.stringify(videoCount));
-        sessionStorage.setItem('videos', JSON.stringify(videos));
-        navigate('/video', { state: { video } });
+        navigate('/video', { state: { video: selectedVideo } });
     }
 
     return (
-        <Button onClick={navigateToDetail} className="ml-2 pl-5 pr-5" disabled={!isVideoSelected}>
+        <Button onClick={navigateToDetail} className="ml-2 pl-5 pr-5" disabled={!selectedVideo}>
             Video Details
         </Button>
     );

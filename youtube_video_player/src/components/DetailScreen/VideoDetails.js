@@ -1,27 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import youtube from '../../api/youtube';
+import React, { useContext } from 'react';
+import { VideoContext } from '../../contexts/VideoContext';
 
 function VideoDetails({ video }) {
-    const [videoDetails, setVideoDetails] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const { videoDetails, loading } = useContext(VideoContext);
 
-    useEffect(() => {
-        async function getVideoDetails(videoId) {
-            const videoData = await youtube.get('/videos', {
-                params: {
-                    id: videoId,
-                    part: 'snippet,statistics',
-                },
-            });
-            setVideoDetails(videoData.data.items[0]);
-            setLoading(false);
-        }
-        getVideoDetails(video.id.videoId);
-    }, [video]);
-
-    if (loading) {
+    if (loading || !videoDetails) {
         return <p>Loading data...</p>;
-    }
+      }
 
     return (
         <div>

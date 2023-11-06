@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BackButton from './BackButton';
 import VideoTitle from './VideoTitle';
 import VideoImage from './VideoImage';
 import VideoDetails from './VideoDetails';
-import { useLocation } from 'react-router-dom';
+import { VideoContext } from '../../contexts/VideoContext';
 
 function DetailScreen() {
-    const location = useLocation();
-    const { video } = location.state || {};
+    const { selectedVideo } = useContext(VideoContext);
 
     return (
         <div className="container-fluid">
             <BackButton/>
             <div className="row">
-                <VideoTitle title={video.snippet.title} />
+                <VideoTitle title={selectedVideo.snippet.title} />
             </div>
             <div className="row">
-                <div className="col-md-6">
-                    <VideoImage imageUrl={video.snippet.thumbnails.high.url} />
+                <div className="col-md-5">
+                    <VideoImage imageUrl={selectedVideo.snippet.thumbnails.high.url} />
                 </div>
                 <div className="col-md-6">
-                    <VideoDetails video={video} />
+                    <VideoDetails video={selectedVideo} />
                 </div>
             </div>
         </div>
