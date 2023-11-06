@@ -30,6 +30,11 @@ function MainScreen() {
         }
     }, []);
 
+    const handleSearchClick = async () => {
+        await onSearchSubmit(searchTerm); 
+        setSearchTerm(''); 
+    }
+
     const onSearchSubmit = async term => {
         const response = await youtube.get('/search', {
             params: {
@@ -39,6 +44,7 @@ function MainScreen() {
         setVideos(response.data.items);
         setSelectedVideo(response.data.items[0]);
         setVideoCount(videoCount + 1);
+        setSearchTerm('');
     };
 
     const onVideoSelect = (video) => {
@@ -52,7 +58,7 @@ function MainScreen() {
             <div className="row h-100">
                 <div className="col-md-7 d-flex flex-column h-100">
                     <div className="d-flex mb-3">
-                        <SearchBar onSearchSubmit={onSearchSubmit} setSearchTerm={setSearchTerm} />
+                        <SearchBar onSearchSubmit={onSearchSubmit} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                     </div>
                     <VideoPlayer video={selectedVideo} />
                     <div className="d-flex justify-content-between align-items-center mt-3">
@@ -61,7 +67,7 @@ function MainScreen() {
                     </div>
                 </div>
                 <div className="col d-flex flex-column justify-content-between">
-                    <SearchButton onSearchClick={() => onSearchSubmit(searchTerm)} />
+                    <SearchButton onSearchClick={handleSearchClick} />
                     <div className='d-flex flex-column h-100'>
                         <VideoList videos={videos} onVideoSelect={onVideoSelect} />
                     </div>

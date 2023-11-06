@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
 import { Search } from 'react-bootstrap-icons';
 
-const SearchBar = ({ onSearchSubmit, setSearchTerm }) => {
-    const [term, setTerm] = useState('');
-
+const SearchBar = ({ onSearchSubmit, setSearchTerm, searchTerm }) => {
+    
     const handleInputChange = (event) => {
-        setTerm(event.target.value);
         setSearchTerm(event.target.value);
     };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        onSearchSubmit(term);
-        setTerm('');
+        onSearchSubmit(searchTerm);
     };
 
     return (
@@ -25,8 +21,8 @@ const SearchBar = ({ onSearchSubmit, setSearchTerm }) => {
             <input
                 type="text"
                 className="form-control rounded"
-                placeholder={"Search..."}
-                value={term}
+                placeholder="Search..."
+                value={searchTerm} 
                 onChange={handleInputChange}
             />
         </form>
