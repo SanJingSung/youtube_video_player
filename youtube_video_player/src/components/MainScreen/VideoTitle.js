@@ -1,8 +1,8 @@
 import React from 'react';
 
-function VideoTitle({ title }) {
+function VideoTitle({ video }) {
   return (
-    <h1>Video title</h1>
+    <div className="text-left h2">{video ? video.snippet.title : "Video title"}</div>
   );
 }
 

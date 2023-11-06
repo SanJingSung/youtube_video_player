@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-function VideoPlayer({ videoURL }) {
-    const defaultURL = "https://www.youtube.com/embed/dummyURL";
-    const finalURL = videoURL || defaultURL;
+function VideoPlayer({ video }) {
+    const videoURL = video ? `https://www.youtube.com/watch?v=${video.id.videoId}` : "https://www.youtube.com/embed/dummyURL";
 
     return (
-        <div className='player-wrapper'>
+        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
             <ReactPlayer
+                style={{ position: 'absolute', top: 0, left: 0 }}
                 className='react-player'
-                url={finalURL}
-                width='100%'
-                height='100%'
+                width="100%"
+                height="100%"
+                url={videoURL}
                 controls={true}
             />
         </div>
@@ -19,4 +19,3 @@ function VideoPlayer({ videoURL }) {
 }
 
 export default VideoPlayer;
-

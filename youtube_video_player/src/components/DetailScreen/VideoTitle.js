@@ -1,7 +1,7 @@
 import React from 'react';
 
-function VideoTitle() {
-    return <h2 className="mb-4">Video title</h2>;
+function VideoTitle({ title }) {
+    return <div className="text-left h2">{title}</div>;
 }
 
 export default VideoTitle;
