@@ -1,15 +1,9 @@
+import React, { useContext } from 'react';
 import { Search } from 'react-bootstrap-icons';
+import { VideoContext } from '../../contexts/VideoContext'; 
 
-const SearchBar = ({ onSearchSubmit, setSearchTerm, searchTerm }) => {
-    
-    const handleInputChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        onSearchSubmit(searchTerm);
-    };
+const SearchBar = () => {
+    const { searchTerm, handleInputChange, handleFormSubmit } = useContext(VideoContext);
 
     return (
         <form onSubmit={handleFormSubmit} className="input-group">
@@ -22,7 +16,7 @@ const SearchBar = ({ onSearchSubmit, setSearchTerm, searchTerm }) => {
                 type="text"
                 className="form-control rounded"
                 placeholder="Search..."
-                value={searchTerm} 
+                value={searchTerm}
                 onChange={handleInputChange}
             />
         </form>

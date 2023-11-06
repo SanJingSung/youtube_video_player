@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 function BackButton() {
     const navigate = useNavigate();
 
-    const navigateToDetail = () => {
-        navigate('/');
+    const navigateBack = () => {
+        navigate(-1);
     }
 
     return (
-        <Button className="mt-1 px-5" onClick={navigateToDetail}>
+        <Button className="mt-1 px-5" onClick={navigateBack}>
             ← Back
         </Button>
     );

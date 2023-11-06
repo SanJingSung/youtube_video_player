@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
+import { VideoContext } from '../../contexts/VideoContext';
 import ReactPlayer from 'react-player';
 
-function VideoPlayer({ video }) {
-    const videoURL = video ? `https://www.youtube.com/watch?v=${video.id.videoId}` : "https://www.youtube.com/embed/dummyURL";
+function VideoPlayer() {
+    const { selectedVideo } = useContext(VideoContext);
+    const videoURL = selectedVideo ? `https://www.youtube.com/watch?v=${selectedVideo.id.videoId}` : "https://www.youtube.com/embed/dummyURL";
 
     return (
         <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
