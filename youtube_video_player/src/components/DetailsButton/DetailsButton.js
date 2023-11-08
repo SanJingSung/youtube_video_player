@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { VideoContext } from '../../contexts/VideoContext';
+import { DETAILS_BUTTON_TEXT, VIDEO_DETAIL_PATH } from '../../constants/Strings';
 
-function DetailsButton() {
-    const { selectedVideo } = useContext(VideoContext);
+function DetailsButton({ selectedVideo }) {
     const navigate = useNavigate();
 
     const navigateToDetail = () => {
-        navigate('/video', { state: { video: selectedVideo } });
+        navigate(VIDEO_DETAIL_PATH, { state: { video: selectedVideo } });
     }
 
     return (
         <Button onClick={navigateToDetail} className="mb-2 ml-2 pl-5 pr-5" disabled={!selectedVideo}>
-            Video Details
+            {DETAILS_BUTTON_TEXT}
         </Button>
     );
 }

@@ -1,25 +1,28 @@
-import React, { useContext } from 'react';
-import BackButton from './BackButton';
-import VideoTitle from './VideoTitle';
-import VideoImage from './VideoImage';
-import VideoDetails from './VideoDetails';
-import { VideoContext } from '../../contexts/VideoContext';
+import React from 'react';
+import BackButton from '../BackButton/BackButton';
+import VideoTitle from '../VideoTitle/VideoTitle';
+import VideoImage from '../VideoImage/VideoImage';
+import VideoDetails from '../VideoDetails/VideoDetails';
+import { useVideo } from '../../contexts/VideoContext';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 
 function DetailScreen() {
-    const { selectedVideo } = useContext(VideoContext);
+    const { selectedVideo, videoDetails, loading } = useVideo();
+
+    if (loading) {
+        return <LoadingIndicator />;
+    }
 
     return (
         <div className="container-fluid">
-            <BackButton/>
-            <div className="row">
-                <VideoTitle title={selectedVideo.snippet.title} />
-            </div>
+            <BackButton />
+            <VideoTitle title={selectedVideo.snippet.title} />
             <div className="row">
                 <div className="col-md-5">
-                    <VideoImage imageUrl={selectedVideo.snippet.thumbnails.high.url} />
+                    <VideoImage imageUrl={selectedVideo.snippet.thumbnails.high.url} loading={loading} />
                 </div>
                 <div className="col-md-6">
-                    <VideoDetails video={selectedVideo} />
+                    <VideoDetails video={selectedVideo} videoDetails={videoDetails} loading={loading} />
                 </div>
             </div>
         </div>
