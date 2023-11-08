@@ -1,21 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { VideoProvider } from './contexts/VideoContext'; 
-import MainScreen from './components/MainScreen/MainScreen';
-import DetailScreen from './components/DetailScreen/DetailScreen';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { VideoProvider } from './contexts/VideoContext';
+import AppRouter from './routes/AppRouter';
 
 function App() {
   return (
     <Router>
       <VideoProvider>
-        <Routes>
-          <Route path="/" element={<MainScreen />} />
-          <Route path="/video" element={<DetailScreen />} />
-        </Routes>
+        <AppRouter />
       </VideoProvider>
     </Router>
   );
 }
 
 export default App;
+
 

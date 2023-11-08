@@ -1,7 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import youtube from '../api/youtube';
 
 export const VideoContext = createContext();
+
+export const useVideo = () => useContext(VideoContext);
 
 export const VideoProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
@@ -51,13 +53,17 @@ export const VideoProvider = ({ children }) => {
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
-};
+  };
 
-const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     await onSearchSubmit(searchTerm);
     setSearchTerm('');
-};
+  };
+
+  const handleVideoReady = () => {
+    setLoading(false);
+  };
 
 
   const value = {
@@ -74,8 +80,10 @@ const handleFormSubmit = async (event) => {
     videoDetails,
     setVideoDetails,
     loading,
+    setLoading,
     handleInputChange,
     handleFormSubmit,
+    handleVideoReady
   };
 
   return (
