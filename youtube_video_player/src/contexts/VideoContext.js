@@ -12,6 +12,9 @@ export const VideoProvider = ({ children }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoDetails, setVideoDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
 
   useEffect(() => {
     async function getVideoDetails(videoId) {
@@ -30,16 +33,24 @@ export const VideoProvider = ({ children }) => {
   }, [selectedVideo]);
 
   const onSearchSubmit = async (term) => {
-    setSearchTerm(term);
-    const response = await youtube.get('/search', {
-      params: {
-        q: term
-      }
-    });
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0])
-    setVideoCount(prevCount => prevCount + 1);
-    setSearchTerm('');
+    try {
+      setSearchTerm(term);
+      setLoading(true);
+      const response = await youtube.get('/search', {
+        params: {
+          q: term,
+          type: 'video',
+        },
+      });
+      setVideos(response.data.items);
+      setSelectedVideo(response.data.items[0]);
+      setVideoCount((prevCount) => prevCount + 1);
+    } catch (error) {
+      handleError('Failed to fetch videos');
+    } finally {
+      setLoading(false);
+      setSearchTerm('');
+    }
   };
 
   const onVideoSelect = (video) => {
@@ -65,6 +76,19 @@ export const VideoProvider = ({ children }) => {
     setLoading(false);
   };
 
+  const handleError = (message) => {
+    setError(message);
+    setShowErrorModal(true);
+    setTimeout(() => {
+      setShowErrorModal(false);
+      setError(null);
+    }, 3000);
+  };
+
+  const handleCloseErrorModal = () => {
+    setShowErrorModal(false);
+    setError(null);
+  };
 
   const value = {
     videos,
@@ -83,7 +107,12 @@ export const VideoProvider = ({ children }) => {
     setLoading,
     handleInputChange,
     handleFormSubmit,
-    handleVideoReady
+    handleVideoReady,
+    error,
+    setError,
+    handleError,
+    showErrorModal,
+    handleCloseErrorModal,
   };
 
   return (
