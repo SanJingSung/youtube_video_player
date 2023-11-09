@@ -1,0 +1,6 @@
+.video-title {
+    width: 88%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

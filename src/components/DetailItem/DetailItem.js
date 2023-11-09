@@ -1,9 +1,11 @@
 import React from 'react';
 
 const DetailItem = ({ title, content }) => (
-    <div>
-        <p className="fw-bold">{title}:</p>
-        <p>{content}</p>
+    <div className="card mb-3 mt-2">
+        <div className="card-body">
+            <h5 className="card-title fw-bold">{title}:</h5>
+            <p className="card-text">{content}</p>
+        </div>
     </div>
 );
 

@@ -2,10 +2,15 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import './VideoPlayer.css';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import { YOUTUBE_VIDEO_BASE_URL, DUMMY_VIDEO_URL } from '../../constants/Strings';
+import { YOUTUBE_VIDEO_BASE_URL } from '../../constants/Strings';
+import VideoPlayerSkeleton from '../VideoPlayerSkeleton/VideoPlayerSkeleton';
 
-function VideoPlayer({ selectedVideo, handleVideoReady, loading }) {
-    const videoURL = selectedVideo ? `${YOUTUBE_VIDEO_BASE_URL}?v=${selectedVideo.id.videoId}` : DUMMY_VIDEO_URL;
+function VideoPlayer({ selectedVideo, handleVideoReady, loading, handlePlay }) {
+    if (!selectedVideo) {
+        return <VideoPlayerSkeleton />;
+    }
+
+    const videoURL = `${YOUTUBE_VIDEO_BASE_URL}?v=${selectedVideo.id.videoId}`;
 
     return (
         <div className="video-wrapper position-relative">
@@ -21,6 +26,7 @@ function VideoPlayer({ selectedVideo, handleVideoReady, loading }) {
                 url={videoURL}
                 controls={true}
                 onReady={handleVideoReady}
+                onPlay={() => handlePlay(selectedVideo.id.videoId)}
             />
         </div>
     );

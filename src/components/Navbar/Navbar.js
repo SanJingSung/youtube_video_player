@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchButton from '../SearchButton/SearchButton';
 import SearchBar from '../SearchBar/SearchBar';
+import './Navbar.css';
 
 function Navbar({ handleSearch, searchTerm, handleInputChange, handleFormSubmit }) {
     return (
@@ -8,7 +9,7 @@ function Navbar({ handleSearch, searchTerm, handleInputChange, handleFormSubmit 
             <div className="col-md-7 d-flex mb-3">
                 <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange} handleFormSubmit={handleFormSubmit} />
             </div>
-            <div className="col d-flex">
+            <div className="col-3 d-flex h-100 search-container">
                 <SearchButton onSearchClick={handleSearch} />
             </div>
         </div>

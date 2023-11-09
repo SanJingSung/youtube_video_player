@@ -14,15 +14,19 @@ function DetailScreen() {
     }
 
     return (
-        <div className="container mt-4 mb-5">
+        <div className="container mt-5">
             <BackButton />
-            <VideoTitle title={selectedVideo.snippet.title} />
-            <div className="row">
-                <div className="col-md-5">
-                    <VideoImage imageUrl={selectedVideo.snippet.thumbnails.high.url} loading={loading} />
-                </div>
-                <div className="col-md-6">
-                    <VideoDetails video={selectedVideo} videoDetails={videoDetails} loading={loading} />
+            <div className="card mt-3 mb-3">
+                <div className="card-body">
+                    <VideoTitle title={selectedVideo.snippet.title} />
+                    <div className="row">
+                        <div className="col-lg-6 d-flex justify-content-center align-items-center">
+                            <VideoImage imageUrl={selectedVideo.snippet.thumbnails.high.url} loading={loading} />
+                        </div>
+                        <div className="col-lg-6">
+                            <VideoDetails video={selectedVideo} videoDetails={videoDetails} loading={loading} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

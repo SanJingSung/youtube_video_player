@@ -14,6 +14,7 @@ export const VideoProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [playedVideo, setPlayedVideo] = useState('');
 
 
   useEffect(() => {
@@ -44,7 +45,6 @@ export const VideoProvider = ({ children }) => {
       });
       setVideos(response.data.items);
       setSelectedVideo(response.data.items[0]);
-      setVideoCount((prevCount) => prevCount + 1);
     } catch (error) {
       handleError('Failed to fetch videos');
     } finally {
@@ -55,7 +55,6 @@ export const VideoProvider = ({ children }) => {
 
   const onVideoSelect = (video) => {
     setSelectedVideo(video);
-    setVideoCount(prevCount => prevCount + 1);
   };
 
   const handleSearch = () => {
@@ -90,6 +89,13 @@ export const VideoProvider = ({ children }) => {
     setError(null);
   };
 
+  const handlePlay = (videoId) => {
+    if (playedVideo !== videoId) {
+      setVideoCount(videoCount + 1);
+      setPlayedVideo(videoId);
+    }
+  };
+
   const value = {
     videos,
     setVideos,
@@ -113,6 +119,9 @@ export const VideoProvider = ({ children }) => {
     handleError,
     showErrorModal,
     handleCloseErrorModal,
+    handlePlay,
+    playedVideo,
+    setPlayedVideo
   };
 
   return (

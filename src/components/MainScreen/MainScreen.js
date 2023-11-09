@@ -17,7 +17,8 @@ function MainScreen() {
         loading,
         error,
         handleCloseErrorModal,
-        showErrorModal
+        showErrorModal,
+        handlePlay
     } = useVideo();
 
     return (
@@ -35,6 +36,7 @@ function MainScreen() {
                 selectedVideo={selectedVideo}
                 handleVideoReady={handleVideoReady}
                 loading={loading}
+                handlePlay={handlePlay}
             />
             <ErrorModal
                 showErrorModal={showErrorModal}
