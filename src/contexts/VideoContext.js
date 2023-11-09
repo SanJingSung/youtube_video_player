@@ -54,7 +54,7 @@ export const VideoProvider = ({ children }) => {
   };
 
   const onVideoSelect = (video) => {
-    setSelectedVideo(video);
+    onSearchSubmit(video.snippet.title);
   };
 
   const handleSearch = () => {
