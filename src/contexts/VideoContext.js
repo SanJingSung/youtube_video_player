@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import youtube from '../api/youtube';
 
-export const VideoContext = createContext();
+const VideoContext = createContext();
 
 export const useVideo = () => useContext(VideoContext);
 

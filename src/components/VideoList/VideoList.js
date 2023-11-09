@@ -1,6 +1,8 @@
 import React from 'react';
 import VideoItem from '../VideoItem/VideoItem';
 import DefaultVideo from '../DefaultVideo/DefaultVideo';
+import { VIDEO_DEFAULT_DISPLAY_AMOUNT } from '../../constants/Strings';
+import './VideoList.css';
 
 function VideoList({ videos, onVideoSelect }) {
     const renderVideoItems = () =>
@@ -9,12 +11,12 @@ function VideoList({ videos, onVideoSelect }) {
         ));
 
     const renderDefaultThumbnails = () =>
-        Array(3).fill().map((_, index) => (
+        Array(VIDEO_DEFAULT_DISPLAY_AMOUNT).fill().map((_, index) => (
             <DefaultVideo key={index} />
         ));
 
     return (
-        <div className="d-flex flex-column h-100">
+        <div className="d-flex flex-column h-100 video-list">
             {videos && videos.length > 0 ? renderVideoItems() : renderDefaultThumbnails()}
         </div>
     );

@@ -11,7 +11,7 @@ function DetailsButton({ selectedVideo }) {
     }
 
     return (
-        <Button onClick={navigateToDetail} className="mb-2 ml-2 pl-5 pr-5" disabled={!selectedVideo}>
+        <Button onClick={navigateToDetail} className="btn-danger mb-2 ml-auto pl-5 pr-5" disabled={!selectedVideo}>
             {DETAILS_BUTTON_TEXT}
         </Button>
     );

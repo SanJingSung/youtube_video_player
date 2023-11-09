@@ -14,7 +14,7 @@ function DetailScreen() {
     }
 
     return (
-        <div className="container-fluid">
+        <div className="container mt-4 mb-5">
             <BackButton />
             <VideoTitle title={selectedVideo.snippet.title} />
             <div className="row">

@@ -8,7 +8,7 @@ function Navbar({ handleSearch, searchTerm, handleInputChange, handleFormSubmit 
             <div className="col-md-7 d-flex mb-3">
                 <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange} handleFormSubmit={handleFormSubmit} />
             </div>
-            <div className="col-md-5">
+            <div className="col d-flex">
                 <SearchButton onSearchClick={handleSearch} />
             </div>
         </div>

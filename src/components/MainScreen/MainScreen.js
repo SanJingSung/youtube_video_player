@@ -21,7 +21,7 @@ function MainScreen() {
     } = useVideo();
 
     return (
-        <div className="container-fluid mt-2">
+        <div className="container mt-5 d-flex flex-column justify-content-center">
             <Navbar
                 handleSearch={handleSearch}
                 searchTerm={searchTerm}

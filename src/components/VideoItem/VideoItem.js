@@ -4,18 +4,22 @@ import './VideoItem.css';
 
 function VideoItem({ video, onVideoSelect }) {
   return (
-    <div className="video-container mb-2 flex-grow-1 d-flex justify-content-center position-relative">
-      <Button className="overlay text-light d-flex justify-content-center align-items-center w-100 h-100 position-absolute top-0 left-0 bg-secondary bg-opacity-50 border-0"
-        onClick={() => onVideoSelect(video)}
-      >
-        <h4><i className="fas fa-search-plus"></i></h4>
-        <p>{video.snippet.title}</p>
-      </Button>
-      <img
-        src={video.snippet.thumbnails.default.url}
-        alt={video.snippet.title}
-        className="img-fluid"
-      />
+    <div className="video-container mb-2 d-flex position-relative video-item">
+      <div className="position-relative img-container">
+        <Button className="overlay text-light justify-content-center align-items-center w-100 h-100 position-absolute top-0 start-0 bg-secondary bg-opacity-50 border-0"
+          onClick={() => onVideoSelect(video)}
+        >
+          <h4><i className="fas fa-search-plus"></i></h4>
+          <div className="overlay-text">
+            <p>{video.snippet.title}</p>
+          </div>
+        </Button>
+        <img
+          src={video.snippet.thumbnails.default.url}
+          alt={video.snippet.title}
+          className="img-fluid position-absolute"
+        />
+      </div>
     </div>
   );
 }

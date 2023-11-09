@@ -1,7 +1,8 @@
 export const BACK_BUTTON = '← Back';
 export const DEFAULT_VIDEO_ALT_TEXT = "Default thumbnail";
-export const DETAILS_BUTTON_TEXT = "Video Details";
+export const DETAILS_BUTTON_TEXT = "Details";
 export const VIDEO_DETAIL_PATH = "/video";
+export const DEFAULT_PATH = "/";
 export const LOADING_INDICATOR_TEXT = "Loading...";
 export const SEARCH_ARIA_LABEL = "Search";
 export const SEARCH_INPUT_PLACEHOLDER = "Search...";
@@ -17,3 +18,4 @@ export const VIDEO_DETAIL_COMMENTS = "Comments";
 export const VIDEO_IMAGE_ALT = "Video Thumbnail";
 export const YOUTUBE_VIDEO_BASE_URL = "https://www.youtube.com/watch";
 export const DUMMY_VIDEO_URL = "https://www.youtube.com/embed/dummyURL";
+export const VIDEO_DEFAULT_DISPLAY_AMOUNT = 3;
