@@ -40,12 +40,12 @@ Here are some screenshots of the application:
 
 ### Home Page
 
-![Home Page](https://github.com/SanJingSung/youtube_video_player/screenshots/homepage.png)
+![Home Page](https://github.com/SanJingSung/youtube_video_player/blob/main/screenshots/homepage.png)
 
 ### Video Details
 
-![Video Details](https://github.com/SanJingSung/youtube_video_player/screenshots/videodetails.png)
+![Video Details](https://github.com/SanJingSung/youtube_video_player/blob/main/screenshots/videodetails.png)
 
 ### Animation
 
-![Page Animation](https://github.com/SanJingSung/youtube_video_player/screenshots/homepage-animation.gif)
+![Page Animation](https://github.com/SanJingSung/youtube_video_player/blob/main/screenshots/homepage-animation.gif)
