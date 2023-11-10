@@ -3,8 +3,6 @@ import { useVideo } from '../../contexts/VideoContext';
 import Navbar from '../Navbar/Navbar';
 import VideoInfo from '../VideoInfo/VideoInfo';
 import ErrorModal from '../ErrorModal/ErrorModal';
-import './MainScreen.css';
-
 
 function MainScreen() {
     const { videos,
