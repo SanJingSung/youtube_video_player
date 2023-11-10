@@ -32,7 +32,7 @@ In addition, you will need a YouTube V3 API key for the application to interact 
 
 ## Usage
 
-To search for videos, simply enter the video title in the search bar and press Enter. The search results will appear on the main page. You can click on the "Details" button to view more details about the video that is in the player and select any of the videos located on the right to play them.
+To search for videos, simply enter the video title in the search bar and press Enter or press de "Search" button. The search results will appear on the main page. You can click on the "Details" button to view more details about the video that is in the player and select any of the videos located on the right to play them.
 
 ## Screenshots
 
@@ -40,8 +40,12 @@ Here are some screenshots of the application:
 
 ### Home Page
 
-![Page Animation](https://github.com/SanJingSung/youtube_video_player/blob/develop/screenshots/homepage-animation.gif)
+![Home Page](https://github.com/SanJingSung/youtube_video_player/screenshots/homepage.png)
 
 ### Video Details
 
-![Video Details](https://github.com/yourusername/yourrepository/screenshots/videodetails.png)
+![Video Details](https://github.com/SanJingSung/youtube_video_player/screenshots/videodetails.png)
+
+### Animation
+
+![Page Animation](https://github.com/SanJingSung/youtube_video_player/screenshots/homepage-animation.gif)
