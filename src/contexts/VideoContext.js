@@ -35,7 +35,6 @@ export const VideoProvider = ({ children }) => {
 
   const onSearchSubmit = async (term) => {
     try {
-      setSearchTerm(term);
       setLoading(true);
       const response = await youtube.get('/search', {
         params: {
