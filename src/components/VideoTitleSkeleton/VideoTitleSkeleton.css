@@ -1,0 +1,9 @@
+.video-title-skeleton {
+    width: 88%;
+}
+
+.video-title-skeleton.skeleton-loader {
+    background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}

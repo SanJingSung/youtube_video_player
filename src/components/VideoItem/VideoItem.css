@@ -1,0 +1,49 @@
+.video-container {
+    position: relative;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.video-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.video-item {
+    height: 33.33%;
+}
+
+.img-container {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-container img,
+.img-container .overlay {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.overlay {
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .video-item {
+        height: 33.33vh;
+    }
+
+    .overlay {
+        height: 33.33vh;
+    }
+}
