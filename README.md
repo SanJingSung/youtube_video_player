@@ -40,7 +40,7 @@ Here are some screenshots of the application:
 
 ### Home Page
 
-![Home Page](https://github.com/SanJingSung/youtube_video_player/blob/develop/screenshots/homepage.png)
+![Page Animation](https://github.com/SanJingSung/youtube_video_player/blob/develop/screenshots/homepage-animation.gif)
 
 ### Video Details
 
