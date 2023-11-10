@@ -3,6 +3,8 @@ import { useVideo } from '../../contexts/VideoContext';
 import Navbar from '../Navbar/Navbar';
 import VideoInfo from '../VideoInfo/VideoInfo';
 import ErrorModal from '../ErrorModal/ErrorModal';
+import './MainScreen.css';
+
 
 function MainScreen() {
     const { videos,
@@ -22,7 +24,7 @@ function MainScreen() {
     } = useVideo();
 
     return (
-        <div className="container mt-5 d-flex flex-column justify-content-center">
+        <div className="MainScreen-container container mt-5 d-flex flex-column justify-content-center">
             <Navbar
                 handleSearch={handleSearch}
                 searchTerm={searchTerm}
